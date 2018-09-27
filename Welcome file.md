@@ -4,9 +4,11 @@
 ## UML diagrams
 
 ```mermaid
-
+sequenceDiagram
+    participant Mail
+    participant Bob
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTcxMDIwNzcsLTg4MDg5NDk2OSwtMj
-A5NTU1NDg0NF19
+eyJoaXN0b3J5IjpbLTQ5ODExMjExMSwtODgwODk0OTY5LC0yMD
+k1NTU0ODQ0XX0=
 -->
