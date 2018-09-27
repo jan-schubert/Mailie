@@ -4,11 +4,9 @@
 ## UML diagrams
 
 ```mermaid
-classDiagram
-Class01
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0MTczMTI4MywtODgwODk0OTY5LC0yMD
-k1NTU0ODQ0XX0=
+eyJoaXN0b3J5IjpbLTE1OTcxMDIwNzcsLTg4MDg5NDk2OSwtMj
+A5NTU1NDg0NF19
 -->
