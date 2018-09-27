@@ -4,18 +4,11 @@
 ## UML diagrams
 
 ```mermaid
-gantt
-dateFormat  YYYY-MM-DD
-title Adding GANTT diagram to mermaid
-
-section A section
-Completed task            :done,    des1, 2014-01-06,2014-01-08
-Active task               :active,  des2, 2014-01-09, 3d
-Future task               :         des3, after des2, 5d
-Future task2               :         des4, after des3, 5d
+classDiagram
+Class01
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1OTQ4NzcwNSwtODgwODk0OTY5LC0yMD
+eyJoaXN0b3J5IjpbMjA0MTczMTI4MywtODgwODk0OTY5LC0yMD
 k1NTU0ODQ0XX0=
 -->
