@@ -4,14 +4,12 @@
 ```mermaid
 sequenceDiagram
 participant ViewModel
-participant MailAccountManager
 participant MailAccountService
 participant UnitOfWork
 
 MailAccountService->>ViewModel: CreateNew
 ViewModel-->>ViewModel: User changes
-ViewModel->>MailAccountManager: SaveMailAccount
-MailAccountManager->>MailAccountService: Update
+ViewModel->>MailAccountService: Update
 MailAccountService->>UnitOfWork: Attach
 ViewModel->>UnitOfWork: SaveChanges()
 ```
@@ -19,12 +17,10 @@ ViewModel->>UnitOfWork: SaveChanges()
 ```mermaid
 sequenceDiagram
 participant ViewModel
-participant MailAccountManager
 participant MailAccountService
 participant UnitOfWork
 
-MailAccountManager->>ViewModel: GetMailAccount
-MailAccountService->>MailAccountManager: CreateNew
+MailAccountService->>ViewModel: Get
 ViewModel-->>ViewModel: User changes
 ViewModel->>MailAccountManager: SaveMailAccount
 MailAccountManager->>MailAccountService: Update
@@ -32,6 +28,6 @@ MailAccountService->>UnitOfWork: Attach
 ViewModel->>UnitOfWork: SaveChanges()
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNDc0NzIyOSwxOTYzNTQ2NjYyLC0xOT
-g2OTQwNDMwXX0=
+eyJoaXN0b3J5IjpbMjIwNDA3MzQ2LDE5NjM1NDY2NjIsLTE5OD
+Y5NDA0MzBdfQ==
 -->
