@@ -13,9 +13,9 @@ MailAccountService->>MailAccountManager: CreateNew
 ViewModel-->>ViewModel: User changes
 ViewModel->>MailAccountManager: SaveMailAccount
 MailAccountManager->>MailAccountService: Update
-MailAccountService->>UnitOfWork: 
+MailAccountService->>UnitOfWork: Attach
 ViewModel->>UnitOfWork: SaveChanges()
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MDcyODIzNywtMTk4Njk0MDQzMF19
+eyJoaXN0b3J5IjpbMTg0Mzk5NzIyNCwtMTk4Njk0MDQzMF19
 -->
