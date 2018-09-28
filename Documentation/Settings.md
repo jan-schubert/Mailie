@@ -1,5 +1,10 @@
 # Settings
-## 
+## Mail accounts
+### Create mail account
+```mermaid
+
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMzM5MTU1OF19
+eyJoaXN0b3J5IjpbNTA2MjM4NzQxXX0=
 -->
