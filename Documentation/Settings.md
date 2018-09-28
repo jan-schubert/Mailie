@@ -5,12 +5,13 @@
 sequenceDiagram
 participant ViewModel
 participant MailAccountManager
-participant qq
-
+participant MailAccountService
+participant UnitOfWork
 
 MailAccountManager->>ViewModel: CreateNewMailAccount
+MailAccountService->>MailAccountManager: CreateNewMailAccount
 ViewModel->>MailAccountManager: SaveMailAccount
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODY5NDA0MzBdfQ==
+eyJoaXN0b3J5IjpbMTgxMzY5ODQ1LC0xOTg2OTQwNDMwXX0=
 -->
