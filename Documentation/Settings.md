@@ -8,7 +8,7 @@ participant MailAccountManager
 participant MailAccountService
 participant UnitOfWork
 
-MailAccountManager->>ViewModel: CreateNewMailAccount
+MailAccountService->>ViewModel: CreateNew
 ViewModel-->>ViewModel: User changes
 ViewModel->>MailAccountManager: SaveMailAccount
 MailAccountManager->>MailAccountService: Update
@@ -32,6 +32,6 @@ MailAccountService->>UnitOfWork: Attach
 ViewModel->>UnitOfWork: SaveChanges()
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNDEwMDI5MywxOTYzNTQ2NjYyLC0xOT
+eyJoaXN0b3J5IjpbLTgxNDc0NzIyOSwxOTYzNTQ2NjYyLC0xOT
 g2OTQwNDMwXX0=
 -->
