@@ -4,9 +4,10 @@
 ```mermaid
 sequenceDiagram
 participant ViewModel
+
 participant MailAccountManager
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MDE1NjA5NF19
+eyJoaXN0b3J5IjpbMTE5NDY1MTk4NF19
 -->
