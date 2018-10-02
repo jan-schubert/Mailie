@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
+             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccountSettings;assembly=Mailie"
+             x:Class="Mailie.Views.MailAccountSettings.MailAccountView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailAccountSettings:MailAccountViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Path=MailAccount.Host}" />
+            <Entry Text="{Binding Path=MailAccount.Port}" Keyboard="Numeric" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

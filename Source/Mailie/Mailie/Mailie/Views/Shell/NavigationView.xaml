@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccountSettings;assembly=Mailie"
+             xmlns:shell="clr-namespace:Mailie.Views.Shell;assembly=Mailie"
+             x:Class="Mailie.Views.Shell.NavigationView" Title="Mailie">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ListView">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type shell:NavigationItem}">
+                        <shell:NavigationItem Title="Manage accounts" TargetType="{x:Type mailAccountSettings:MailAccountOverviewView}" />
+                    </x:Array>
+                </ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Title}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

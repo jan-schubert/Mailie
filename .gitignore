@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Source/Mailie/.vs/Mailie/DesignTimeBuild
+/Source/Mailie/.vs/Mailie/v15
+/Source/Mailie/Mailie/Mailie/bin/Debug/netstandard2.0
+/Source/Mailie/Mailie/Mailie/obj
+/Source/Mailie/Mailie/Mailie.Android/bin/Debug
+/Source/Mailie/Mailie/Mailie.Android/obj
+/Source/Mailie/Mailie/Mailie.UWP/bin/x86/Debug
+/Source/Mailie/Mailie/Mailie.UWP/obj
+/Source/Mailie/Mailie.Migrations/bin/Debug/netcoreapp2.1
+/Source/Mailie/Mailie.Migrations/obj
