@@ -19,10 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\MailAccountSettings\MailAccountOverviewView.xaml.cs">
+    <Compile Update="Views\MailAccounts\MailAccountOverviewView.xaml.cs">
       <DependentUpon>MailAccountOverviewView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\MailAccountSettings\MailAccountView.xaml.cs">
+    <Compile Update="Views\MailAccounts\MailAccountView.xaml.cs">
       <DependentUpon>MailAccountView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Shell\MainView.xaml.cs">
@@ -31,13 +31,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\MailAccountSettings\MailAccountView.xaml">
+    <EmbeddedResource Update="Views\MailAccounts\MailAccountView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MailContacts\MailContactOverviewView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MailContacts\MailContactView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Shell\NavigationView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MailAccountSettings\MailAccountOverviewView.xaml">
+    <EmbeddedResource Update="Views\MailAccounts\MailAccountOverviewView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

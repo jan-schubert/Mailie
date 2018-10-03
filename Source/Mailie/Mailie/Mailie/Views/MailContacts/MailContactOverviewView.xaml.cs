@@ -1,11 +1,11 @@
 ﻿using Xamarin.Forms.Xaml;
 
-namespace Mailie.Views.MailAccountSettings
+namespace Mailie.Views.MailContacts
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MailAccountView
+	public partial class MailContactOverviewView
 	{
-		public MailAccountView ()
+		public MailContactOverviewView ()
 		{
 			InitializeComponent ();
 		}

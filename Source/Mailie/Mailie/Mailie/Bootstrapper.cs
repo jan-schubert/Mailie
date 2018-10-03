@@ -2,7 +2,7 @@ using Grace.DependencyInjection;
 using Mailie.DataAccessLayer;
 using Mailie.DependencyInjection;
 using Mailie.Events;
-using Mailie.Views.MailAccountSettings;
+using Mailie.Views.MailAccounts;
 using Mailie.Views.Shell;
 using Microsoft.EntityFrameworkCore;
 

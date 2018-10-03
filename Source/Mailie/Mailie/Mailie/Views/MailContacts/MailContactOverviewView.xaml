@@ -2,17 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
-             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccountSettings;assembly=Mailie"
-             x:Class="Mailie.Views.MailAccountSettings.MailAccountOverviewView"
-             mvvm:ViewModelLocator.ViewModelType="{x:Type mailAccountSettings:MailAccountOverviewViewModel}">
+             xmlns:mailContacts="clr-namespace:Mailie.Views.MailContacts;assembly=Mailie"
+             x:Class="Mailie.Views.MailContacts.MailContactOverviewView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailContacts:MailContactOverviewViewModel}">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="New" Command="{Binding Path=NewMailAccountCommand}" />
-            <ListView ItemsSource="{Binding Path=MailAccounts}" SelectedItem="{Binding Path=SelectedMailAccount, Mode=OneWayToSource}">
+            <Button Text="New" Command="{Binding Path=NewCommand}" />
+            <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem, Mode=OneWayToSource}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding Path=Host}" />
+                            <Label Text="{Binding Path=Name}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

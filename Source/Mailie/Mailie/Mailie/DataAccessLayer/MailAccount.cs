@@ -40,5 +40,10 @@ namespace Mailie.DataAccessLayer
         InvokePropertyChanged();
       }
     }
+
+    public override string ToString()
+    {
+      return Host;
+    }
   }
 }

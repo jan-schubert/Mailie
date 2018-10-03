@@ -3,13 +3,40 @@ using System.Linq;
 
 namespace Mailie.DataAccessLayer
 {
-  public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : Entity
+  public class GenericRepository<TEntity>
+    : IRepository<TEntity>, IRepository
+    where TEntity : Entity
   {
     private readonly MailieDbContext _mailieDbContext;
 
     public GenericRepository(MailieDbContext mailieDbContext)
     {
       _mailieDbContext = mailieDbContext;
+    }
+
+    Entity IRepository.CreateNew()
+    {
+      return CreateNew();
+    }
+
+    IQueryable<Entity> IRepository.GetAllQuery()
+    {
+      return GetAllQuery();
+    }
+
+    void IRepository.Add(Entity entity)
+    {
+      Add((TEntity) entity);
+    }
+
+    void IRepository.Delete(Entity entity)
+    {
+      Delete((TEntity) entity);
+    }
+
+    Entity IRepository.GetById(int id)
+    {
+      return GetById(id);
     }
 
     public TEntity GetById(int id)

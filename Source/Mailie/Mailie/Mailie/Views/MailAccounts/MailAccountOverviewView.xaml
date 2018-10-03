@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
+             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccounts;assembly=Mailie"
+             x:Class="Mailie.Views.MailAccounts.MailAccountOverviewView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailAccountSettings:MailAccountOverviewViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="New" Command="{Binding Path=NewCommand}" />
+            <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem, Mode=OneWayToSource}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Path=Host}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

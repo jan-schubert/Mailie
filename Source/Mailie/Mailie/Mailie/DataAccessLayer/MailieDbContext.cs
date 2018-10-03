@@ -16,7 +16,18 @@ namespace Mailie.DataAccessLayer
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<MailAccount>()
-        .HasKey(p => new {p.Id});
+        .HasKey(p => new { p.Id });
+
+      modelBuilder.Entity<MailContact>()
+        .HasKey(p => new { p.Id });
+
+      modelBuilder.Entity<MailAddress>()
+        .HasKey(p => new { p.Id });
+
+      modelBuilder.Entity<MailAddress>()
+        .HasOne(x => x.MailContact)
+        .WithMany(x => x.MailAddresses)
+        .HasForeignKey(x => x.MailContactId);
     }
 
     public override int SaveChanges()

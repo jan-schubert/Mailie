@@ -1,15 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccountSettings;assembly=Mailie"
              xmlns:shell="clr-namespace:Mailie.Views.Shell;assembly=Mailie"
+             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccounts;assembly=Mailie"
+             xmlns:mailContacts="clr-namespace:Mailie.Views.MailContacts;assembly=Mailie"
              x:Class="Mailie.Views.Shell.NavigationView" Title="Mailie">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ListView">
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type shell:NavigationItem}">
-                        <shell:NavigationItem Title="Manage accounts" TargetType="{x:Type mailAccountSettings:MailAccountOverviewView}" />
+                        <shell:NavigationItem Title="Manage contacts"
+                                              TargetType="{x:Type mailContacts:MailContactOverviewView}" />
+                        <shell:NavigationItem Title="Manage accounts"
+                                              TargetType="{x:Type mailAccountSettings:MailAccountOverviewView}" />
                     </x:Array>
                 </ListView.ItemsSource>
                 <ListView.ItemTemplate>
