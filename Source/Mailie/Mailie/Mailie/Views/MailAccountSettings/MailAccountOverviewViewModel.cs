@@ -10,13 +10,21 @@ namespace Mailie.Views.MailAccountSettings
   public class MailAccountOverviewViewModel : UnitOfWorkViewModelBase
   {
     public ObservableCollection<MailAccount> MailAccounts { get; } = new ObservableCollection<MailAccount>();
+    public DelegateCommand<object, object> NewMailAccountCommand { get; }
 
-    public DelegateCommand<object, object> NewMailAccount { get; }
+    public MailAccount SelectedMailAccount
+    {
+      set
+      {
+        if(value != null)
+          EventAggregator.PublishAsync(new NavigationEvent(typeof(MailAccountView), value));
+      }
+    }
 
     public MailAccountOverviewViewModel(IUnitOfWork unitOfWork, IEventAggregator eventAggregator)
       : base(unitOfWork, eventAggregator)
     {
-      NewMailAccount = new DelegateCommand<object, object>(OnNewMailAccount);
+      NewMailAccountCommand = new DelegateCommand<object, object>(OnNewMailAccount);
     }
 
     protected override async Task OnLoadedAsync(object parameter)

@@ -7,8 +7,8 @@
              mvvm:ViewModelLocator.ViewModelType="{x:Type mailAccountSettings:MailAccountOverviewViewModel}">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="New" Command="{Binding Path=NewMailAccount}" />
-            <ListView ItemsSource="{Binding Path=MailAccounts}">
+            <Button Text="New" Command="{Binding Path=NewMailAccountCommand}" />
+            <ListView ItemsSource="{Binding Path=MailAccounts}" SelectedItem="{Binding Path=SelectedMailAccount, Mode=OneWayToSource}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

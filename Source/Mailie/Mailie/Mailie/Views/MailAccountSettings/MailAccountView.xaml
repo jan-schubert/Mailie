@@ -10,6 +10,8 @@
         <StackLayout>
             <Entry Text="{Binding Path=MailAccount.Host}" />
             <Entry Text="{Binding Path=MailAccount.Port}" Keyboard="Numeric" />
+            <Button Text="Save" Command="{Binding Path=SaveCommand}" />
+            <Button Text="Delete" Command="{Binding Path=DeleteCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

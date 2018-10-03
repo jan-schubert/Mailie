@@ -34,5 +34,10 @@ namespace Mailie.DataAccessLayer
     {
       _mailieDbContext.Set<TEntity>().Add(entity);
     }
+
+    public void Delete(TEntity entity)
+    {
+      _mailieDbContext.Set<TEntity>().Remove(entity);
+    }
   }
 }

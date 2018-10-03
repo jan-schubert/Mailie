@@ -9,9 +9,27 @@ namespace Mailie.Views.MailAccountSettings
   {
     private MailAccount _mailAccount;
 
+    public DelegateCommand<object, object> SaveCommand { get; }
+    public DelegateCommand<object, object> DeleteCommand { get; }
+
     public MailAccountViewModel(IUnitOfWork unitOfWork, IEventAggregator eventAggregator)
       : base(unitOfWork, eventAggregator)
     {
+      SaveCommand = new DelegateCommand<object, object>(OnSave);
+      DeleteCommand = new DelegateCommand<object, object>(OnDelete);
+    }
+
+    private Task OnSave(object arg)
+    {
+      UnitOfWork.SaveChanges();
+      return EventAggregator.PublishAsync(new NavigationEvent(typeof(MailAccountOverviewView)));
+    }
+
+    private Task OnDelete(object arg)
+    {
+      UnitOfWork.MailAccountRepository.Delete(_mailAccount);
+      UnitOfWork.SaveChanges();
+      return EventAggregator.PublishAsync(new NavigationEvent(typeof(MailAccountOverviewView)));
     }
 
     public MailAccount MailAccount

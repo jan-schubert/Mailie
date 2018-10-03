@@ -9,5 +9,6 @@ namespace Mailie.DataAccessLayer
     TEntity CreateNew();
     IQueryable<TEntity> GetAllQuery();
     void Add(TEntity entity);
+    void Delete(TEntity entity);
   }
 }
