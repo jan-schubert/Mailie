@@ -21,6 +21,9 @@ namespace Mailie.DataAccessLayer
       modelBuilder.Entity<MailContact>()
         .HasKey(p => new { p.Id });
 
+      modelBuilder.Entity<MailMessage>()
+        .HasKey(p => new { p.Id });
+
       modelBuilder.Entity<MailAddress>()
         .HasKey(p => new { p.Id });
 

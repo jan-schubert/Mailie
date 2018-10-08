@@ -2,7 +2,7 @@
 using Mailie.Events;
 using Mailie.Mvvm;
 
-namespace Mailie.Views.MailAccounts
+namespace Mailie.Views.Settings.MailAccounts
 {
   public class MailAccountOverviewViewModel : OverviewViewModel<MailAccount, MailAccountView>
   {

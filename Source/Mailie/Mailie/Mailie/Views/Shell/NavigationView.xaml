@@ -3,8 +3,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:shell="clr-namespace:Mailie.Views.Shell;assembly=Mailie"
-             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.MailAccounts;assembly=Mailie"
-             xmlns:mailContacts="clr-namespace:Mailie.Views.MailContacts;assembly=Mailie"
+             xmlns:mailContacts="clr-namespace:Mailie.Views.Settings.MailContacts;assembly=Mailie"
+             xmlns:mailAccountSettings="clr-namespace:Mailie.Views.Settings.MailAccounts;assembly=Mailie"
              x:Class="Mailie.Views.Shell.NavigationView" Title="Mailie">
     <ContentPage.Content>
         <StackLayout>

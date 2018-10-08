@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Mailie.DataAccessLayer
 {
@@ -65,6 +67,17 @@ namespace Mailie.DataAccessLayer
     public void Delete(TEntity entity)
     {
       _mailieDbContext.Set<TEntity>().Remove(entity);
+    }
+
+    public void LoadCollection(TEntity entity, Expression<Func<TEntity, object>> func)
+    {
+      _mailieDbContext.Entry(entity).Collection(PropertyName(func)).Load();
+    }
+
+    private static string PropertyName<T>(Expression<Func<T, object>> expression)
+    {
+      var body = expression.Body as MemberExpression ?? ((UnaryExpression)expression.Body).Operand as MemberExpression;
+      return body.Member.Name;
     }
   }
 }

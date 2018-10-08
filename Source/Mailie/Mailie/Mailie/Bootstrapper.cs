@@ -1,8 +1,9 @@
 using Grace.DependencyInjection;
+using Mailie.Cryptography;
 using Mailie.DataAccessLayer;
 using Mailie.DependencyInjection;
 using Mailie.Events;
-using Mailie.Views.MailAccounts;
+using Mailie.Views.Settings.MailAccounts;
 using Mailie.Views.Shell;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,6 +39,7 @@ namespace Mailie
       _container.Configure(c => c.Export<MailAccountViewModel>().As<MailAccountViewModel>().Lifestyle.Singleton());
       _container.Configure(c => c.Export<UnitOfWork>().As<IUnitOfWork>().Lifestyle.Singleton());
       _container.Configure(c => c.Export<EventAggregator>().As<IEventAggregator>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<CryptographyService>().As<ICryptographyService>().Lifestyle.Singleton());
       _container.Configure(c => c.ExportFactory<IServiceLocator>(() => new ServiceLocator(_container)).Lifestyle.Singleton());
       _container.Configure(c => c.ExportFactory(() =>
       {

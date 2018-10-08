@@ -15,6 +15,9 @@ namespace Mailie.DataAccessLayer
     }
 
     public IRepository<MailAccount> MailAccountRepository => GetRepository<MailAccount>();
+    public IRepository<MailContact> MailContactRepository => GetRepository<MailContact>();
+    public IRepository<MailAddress> MailAddressRepository => GetRepository<MailAddress>();
+    public IRepository<MailMessage> MailMessageRepository => GetRepository<MailMessage>();
 
     public IRepository<TEntity> GetRepository<TEntity>()
       where TEntity : Entity

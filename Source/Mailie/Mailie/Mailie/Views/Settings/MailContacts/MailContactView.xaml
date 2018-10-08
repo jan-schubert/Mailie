@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
+             xmlns:mailContacts="clr-namespace:Mailie.Views.Settings.MailContacts;assembly=Mailie"
+             x:Class="Mailie.Views.Settings.MailContacts.MailContactView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailContacts:MailContactViewModel}" x:Name="Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Entry Text="{Binding Path=Item.Name}" />
+                <Button Text="Add" Command="{Binding Path=AddAddressCommand}" />
+                <Button Text="Delete" Command="{Binding Path=DeleteSelectedAddressCommand}" />
+                <ListView ItemsSource="{Binding Path=Item.MailAddresses}" SelectedItem="{Binding Path=SelectedAddress}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Entry Text="{Binding Path=Address}" Focused="VisualElement_OnFocused" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Save" Command="{Binding Path=SaveCommand}" />
+                <Button Text="Delete" Command="{Binding Path=DeleteCommand}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

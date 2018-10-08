@@ -3,14 +3,16 @@ using System;
 using Mailie.DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Mailie.Migrations
 {
     [DbContext(typeof(MailieDbContext))]
-    partial class MailieDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181006180847_AddUsernamePassword")]
+    partial class AddUsernamePassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,87 +78,12 @@ namespace Mailie.Migrations
                     b.ToTable("MailContact");
                 });
 
-            modelBuilder.Entity("Mailie.DataAccessLayer.MailMessage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Bcc");
-
-                    b.Property<string>("BodyText");
-
-                    b.Property<string>("Cc");
-
-                    b.Property<DateTime>("CreationDateTime");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("From");
-
-                    b.Property<string>("HtmlBody");
-
-                    b.Property<string>("InReplyTo");
-
-                    b.Property<DateTime>("LastModifiedDateTime");
-
-                    b.Property<int?>("MailContactId");
-
-                    b.Property<string>("MessageId");
-
-                    b.Property<int>("MessageImportance");
-
-                    b.Property<int>("MessagePriority");
-
-                    b.Property<string>("MimeVersion");
-
-                    b.Property<string>("ReplyTo");
-
-                    b.Property<string>("ResentBcc");
-
-                    b.Property<string>("ResentCc");
-
-                    b.Property<DateTime>("ResentDate");
-
-                    b.Property<string>("ResentFrom");
-
-                    b.Property<string>("ResentMessageId");
-
-                    b.Property<string>("ResentReplyTo");
-
-                    b.Property<string>("ResentSender");
-
-                    b.Property<string>("ResentTo");
-
-                    b.Property<string>("Sender");
-
-                    b.Property<string>("Subject");
-
-                    b.Property<string>("TextBody");
-
-                    b.Property<string>("To");
-
-                    b.Property<int>("XPriority");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MailContactId");
-
-                    b.ToTable("MailMessage");
-                });
-
             modelBuilder.Entity("Mailie.DataAccessLayer.MailAddress", b =>
                 {
                     b.HasOne("Mailie.DataAccessLayer.MailContact", "MailContact")
                         .WithMany("MailAddresses")
                         .HasForeignKey("MailContactId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Mailie.DataAccessLayer.MailMessage", b =>
-                {
-                    b.HasOne("Mailie.DataAccessLayer.MailContact", "MailContact")
-                        .WithMany()
-                        .HasForeignKey("MailContactId");
                 });
 #pragma warning restore 612, 618
         }

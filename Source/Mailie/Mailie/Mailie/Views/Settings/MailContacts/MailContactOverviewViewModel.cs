@@ -1,9 +1,8 @@
 using Mailie.DataAccessLayer;
 using Mailie.Events;
 using Mailie.Mvvm;
-using Microsoft.EntityFrameworkCore;
 
-namespace Mailie.Views.MailContacts
+namespace Mailie.Views.Settings.MailContacts
 {
   public class MailContactOverviewViewModel : OverviewViewModel<MailContact, MailContactView>
   {

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Mailie.DataAccessLayer
 {
@@ -10,6 +12,7 @@ namespace Mailie.DataAccessLayer
     IQueryable<TEntity> GetAllQuery();
     void Add(TEntity entity);
     void Delete(TEntity entity);
+    void LoadCollection(TEntity entity, Expression<Func<TEntity, object>> func);
   }
 
   public interface IRepository

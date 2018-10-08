@@ -7,6 +7,8 @@ namespace Mailie.DataAccessLayer
     private string _host;
     private int _port;
     private SecureSocketOptions _secureSocketOptions;
+    private string _username;
+    private string _password;
 
     public string Host
     {
@@ -37,6 +39,28 @@ namespace Mailie.DataAccessLayer
       {
         if (value == _secureSocketOptions) return;
         _secureSocketOptions = value;
+        InvokePropertyChanged();
+      }
+    }
+
+    public string Username
+    {
+      get => _username;
+      set
+      {
+        if (value == _username) return;
+        _username = value;
+        InvokePropertyChanged();
+      }
+    }
+
+    public string Password
+    {
+      get => _password;
+      set
+      {
+        if (value == _password) return;
+        _password = value;
         InvokePropertyChanged();
       }
     }

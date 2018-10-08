@@ -51,10 +51,15 @@ namespace Mailie.Mvvm
       }
       else
       {
-        Item = (TEntity) parameter;
+        Item = OnSetItemFromParameter(parameter);
       }
 
       return Task.CompletedTask;
+    }
+
+    public virtual TEntity OnSetItemFromParameter(object parameter)
+    {
+      return (TEntity) parameter;
     }
 
     protected override Task OnUnloadedAsync()

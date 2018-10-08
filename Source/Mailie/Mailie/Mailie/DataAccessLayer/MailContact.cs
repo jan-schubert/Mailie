@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Mailie.DataAccessLayer
 {
@@ -6,6 +7,11 @@ namespace Mailie.DataAccessLayer
   {
     private string _name;
     private ICollection<MailAddress> _mailAddresses;
+
+    public MailContact()
+    {
+      _mailAddresses = new ObservableCollection<MailAddress>();
+    }
 
     public string Name
     {
