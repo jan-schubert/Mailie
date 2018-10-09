@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
+             xmlns:mailContacts="clr-namespace:Mailie.Views.MailContacts;assembly=Mailie"
+             x:Class="Mailie.Views.MailContacts.MailContactOverviewView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailContacts:MailContactOverviewViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Refresh" Command="{Binding Path=RefreshCommand}" />
+            <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem, Mode=OneWayToSource}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Path=Name}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

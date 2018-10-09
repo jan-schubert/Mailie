@@ -7,8 +7,9 @@ namespace Mailie.DataAccessLayer
 {
   public class Entity : INotifyPropertyChanged
   {
-    private DateTime _creationDateTime;
     private int _id;
+    private Guid _guid;
+    private DateTime _creationDateTime;
     private DateTime _lastModifiedDateTime;
 
     public int Id
@@ -18,6 +19,17 @@ namespace Mailie.DataAccessLayer
       {
         if (value == _id) return;
         _id = value;
+        InvokePropertyChanged();
+      }
+    }
+
+    public Guid Guid
+    {
+      get => _guid;
+      set
+      {
+        if (value == _guid) return;
+        _guid = value;
         InvokePropertyChanged();
       }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mailie.DataAccessLayer
@@ -30,9 +31,9 @@ namespace Mailie.DataAccessLayer
       return _mailieDbContext.ChangeTracker.HasChanges();
     }
 
-    public void SaveChanges()
+    public Task SaveChangesAsync()
     {
-      _mailieDbContext.SaveChanges();
+      return _mailieDbContext.SaveChangesAsync();
     }
 
     public void ResetEntityState(Entity entity)

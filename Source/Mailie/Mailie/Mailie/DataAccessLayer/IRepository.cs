@@ -7,12 +7,15 @@ namespace Mailie.DataAccessLayer
   public interface IRepository<TEntity>
     where TEntity : Entity
   {
-    TEntity GetById(int id);
+    TEntity GetBy(int id);
+    TEntity GetBy(Guid guid);
+    TEntity TryGetBy(Guid guid);
     TEntity CreateNew();
     IQueryable<TEntity> GetAllQuery();
     void Add(TEntity entity);
     void Delete(TEntity entity);
     void LoadCollection(TEntity entity, Expression<Func<TEntity, object>> func);
+    void Update(TEntity entity);
   }
 
   public interface IRepository

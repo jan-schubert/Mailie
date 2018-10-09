@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mailie.Migrations
 {
     [DbContext(typeof(MailieDbContext))]
-    [Migration("20181008080643_AddMailMessage")]
-    partial class AddMailMessage
+    [Migration("20181009113012_CreateInital")]
+    partial class CreateInital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,8 @@ namespace Mailie.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreationDateTime");
+
+                    b.Property<Guid>("Guid");
 
                     b.Property<string>("Host");
 
@@ -39,7 +41,7 @@ namespace Mailie.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MailAccounts");
+                    b.ToTable("MailAccount");
                 });
 
             modelBuilder.Entity("Mailie.DataAccessLayer.MailAddress", b =>
@@ -50,6 +52,8 @@ namespace Mailie.Migrations
                     b.Property<string>("Address");
 
                     b.Property<DateTime>("CreationDateTime");
+
+                    b.Property<Guid>("Guid");
 
                     b.Property<DateTime>("LastModifiedDateTime");
 
@@ -68,6 +72,8 @@ namespace Mailie.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreationDateTime");
+
+                    b.Property<Guid>("Guid");
 
                     b.Property<DateTime>("LastModifiedDateTime");
 
@@ -94,6 +100,8 @@ namespace Mailie.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("From");
+
+                    b.Property<Guid>("Guid");
 
                     b.Property<string>("HtmlBody");
 

@@ -11,8 +11,6 @@ namespace Mailie.DataAccessLayer
     {
     }
 
-    public DbSet<MailAccount> MailAccounts { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<MailAccount>()

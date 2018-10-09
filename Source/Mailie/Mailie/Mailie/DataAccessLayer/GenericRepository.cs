@@ -38,17 +38,28 @@ namespace Mailie.DataAccessLayer
 
     Entity IRepository.GetById(int id)
     {
-      return GetById(id);
+      return GetBy(id);
     }
 
-    public TEntity GetById(int id)
+    public TEntity GetBy(int id)
     {
       return _mailieDbContext.Set<TEntity>().Find(id);
+    }
+
+    public TEntity GetBy(Guid guid)
+    {
+      return _mailieDbContext.Set<TEntity>().Single(x => x.Guid == guid);
+    }
+
+    public TEntity TryGetBy(Guid guid)
+    {
+      return _mailieDbContext.Set<TEntity>().SingleOrDefault(x => x.Guid == guid);
     }
 
     public TEntity CreateNew()
     {
       var entity = Activator.CreateInstance<TEntity>();
+      entity.Guid = Guid.NewGuid();
       entity.CreationDateTime = DateTime.Now;
       entity.LastModifiedDateTime = DateTime.Now;
       return entity;
@@ -74,10 +85,14 @@ namespace Mailie.DataAccessLayer
       _mailieDbContext.Entry(entity).Collection(PropertyName(func)).Load();
     }
 
+    public void Update(TEntity entity)
+    {
+      _mailieDbContext.Set<TEntity>().Update(entity);
+    }
+
     private static string PropertyName<T>(Expression<Func<T, object>> expression)
     {
-      var body = expression.Body as MemberExpression ?? ((UnaryExpression)expression.Body).Operand as MemberExpression;
-      return body.Member.Name;
+      return (expression.Body as MemberExpression ?? (MemberExpression) ((UnaryExpression)expression.Body).Operand).Member.Name;
     }
   }
 }

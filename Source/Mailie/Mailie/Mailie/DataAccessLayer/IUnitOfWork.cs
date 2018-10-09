@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Mailie.DataAccessLayer
 {
   public interface IUnitOfWork
@@ -12,7 +14,7 @@ namespace Mailie.DataAccessLayer
 
     bool HasChanges();
 
-    void SaveChanges();
+    Task SaveChangesAsync();
 
     void ResetEntityState(Entity entity);
   }

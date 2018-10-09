@@ -39,10 +39,10 @@ namespace Mailie.Mvvm
       await OnUnloadedAsync();
     }
 
-    private Task SaveChangesAsync()
+    private async Task SaveChangesAsync()
     {
-      UnitOfWork.SaveChanges();
-      return OnSaveChanges();
+      await UnitOfWork.SaveChangesAsync();
+      await OnSaveChanges();
     }
 
     protected virtual Task OnDoNotSaveChangesAsync()

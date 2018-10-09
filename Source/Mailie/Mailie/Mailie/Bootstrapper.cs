@@ -3,7 +3,10 @@ using Mailie.Cryptography;
 using Mailie.DataAccessLayer;
 using Mailie.DependencyInjection;
 using Mailie.Events;
+using Mailie.Services;
+using Mailie.Views.MailMessages;
 using Mailie.Views.Settings.MailAccounts;
+using Mailie.Views.Settings.MailContacts;
 using Mailie.Views.Shell;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,8 +38,17 @@ namespace Mailie
     {
       _container = new DependencyInjectionContainer();
 
+      _container.Configure(c => c.Export<MailMessageService>().As<IMailMessageService>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<MailContactService>().As<IMailContactService>().Lifestyle.Singleton());
+
       _container.Configure(c => c.Export<MailAccountOverviewViewModel>().As<MailAccountOverviewViewModel>().Lifestyle.Singleton());
       _container.Configure(c => c.Export<MailAccountViewModel>().As<MailAccountViewModel>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<MailContactOverviewViewModel>().As<MailContactOverviewViewModel>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<MailContactViewModel>().As<MailContactViewModel>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<Views.MailContacts.MailContactOverviewViewModel>().As<Views.MailContacts.MailContactOverviewViewModel>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<MailMessageOverviewView>().As<MailMessageOverviewView>().Lifestyle.Singleton());
+      _container.Configure(c => c.Export<MailMessageView>().As<MailMessageView>().Lifestyle.Singleton());
+
       _container.Configure(c => c.Export<UnitOfWork>().As<IUnitOfWork>().Lifestyle.Singleton());
       _container.Configure(c => c.Export<EventAggregator>().As<IEventAggregator>().Lifestyle.Singleton());
       _container.Configure(c => c.Export<CryptographyService>().As<ICryptographyService>().Lifestyle.Singleton());

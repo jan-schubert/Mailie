@@ -29,17 +29,17 @@ namespace Mailie.Mvvm
       }
     }
 
-    private Task OnSave(object arg)
+    private async Task OnSave(object arg)
     {
-      UnitOfWork.SaveChanges();
-      return EventAggregator.PublishAsync(new NavigationEvent(typeof(TOverviewView)));
+      await UnitOfWork.SaveChangesAsync();
+      await EventAggregator.PublishAsync(new NavigationEvent(typeof(TOverviewView)));
     }
 
-    private Task OnDelete(object arg)
+    private async Task OnDelete(object arg)
     {
       UnitOfWork.GetRepository<TEntity>().Delete(_item);
-      UnitOfWork.SaveChanges();
-      return EventAggregator.PublishAsync(new NavigationEvent(typeof(TOverviewView)));
+      await UnitOfWork.SaveChangesAsync();
+      await EventAggregator.PublishAsync(new NavigationEvent(typeof(TOverviewView)));
     }
 
     protected override Task OnLoadedAsync(object parameter)

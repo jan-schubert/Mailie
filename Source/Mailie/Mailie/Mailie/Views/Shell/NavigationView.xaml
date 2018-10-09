@@ -3,14 +3,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:shell="clr-namespace:Mailie.Views.Shell;assembly=Mailie"
-             xmlns:mailContacts="clr-namespace:Mailie.Views.Settings.MailContacts;assembly=Mailie"
              xmlns:mailAccountSettings="clr-namespace:Mailie.Views.Settings.MailAccounts;assembly=Mailie"
+             xmlns:mailContacts1="clr-namespace:Mailie.Views.MailContacts;assembly=Mailie"
+             xmlns:mailContacts="clr-namespace:Mailie.Views.Settings.MailContacts;assembly=Mailie"
              x:Class="Mailie.Views.Shell.NavigationView" Title="Mailie">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ListView">
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type shell:NavigationItem}">
+                        <shell:NavigationItem Title="Home"
+                                              TargetType="{x:Type mailContacts1:MailContactOverviewView}" />
                         <shell:NavigationItem Title="Manage contacts"
                                               TargetType="{x:Type mailContacts:MailContactOverviewView}" />
                         <shell:NavigationItem Title="Manage accounts"
