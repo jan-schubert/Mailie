@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mailie.Views.MailMessages.MailMessageOverviewView">
+             xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
+             xmlns:mailMessages="clr-namespace:Mailie.Views.MailMessages;assembly=Mailie"
+             xmlns:valueConverters="clr-namespace:Mailie.ValueConverters;assembly=Mailie"
+             x:Class="Mailie.Views.MailMessages.MailMessageOverviewView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailMessages:MailMessageOverviewViewModel}">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Path=Items}">
+        <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Path=Body}" />
+                        <StackLayout>
+                            <Label Text="{Binding Path=From}" />
+                            <Label Text="{Binding Path=Subject}" />
+                            <Label Text="{Binding Path=Date}" />
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

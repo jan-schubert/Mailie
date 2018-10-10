@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mailie.Views.MailMessages.MailMessageView">
+             xmlns:mvvm="clr-namespace:Mailie.Mvvm;assembly=Mailie"
+             xmlns:mailMessages="clr-namespace:Mailie.Views.MailMessages;assembly=Mailie"
+             x:Class="Mailie.Views.MailMessages.MailMessageView"
+             mvvm:ViewModelLocator.ViewModelType="{x:Type mailMessages:MailMessageViewModel}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Path=Item.From}" />
+            <Label Text="{Binding Path=Item.To}" />
+            <Label Text="{Binding Path=Item.Date}" />
+            <Label Text="{Binding Path=Item.BodyText}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
