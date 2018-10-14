@@ -7,7 +7,10 @@
              mvvm:ViewModelLocator.ViewModelType="{x:Type mailMessages:MailMessageViewModel}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Path=Item.From}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Path=Item.From}" />
+                <Button Image="{mvvm:ImageResource Mailie.Resources.Images.update_contact.png}" />
+            </StackLayout>
             <Label Text="{Binding Path=Item.To}" />
             <Label Text="{Binding Path=Item.Date}" />
             <Label Text="{Binding Path=Item.BodyText}" />
